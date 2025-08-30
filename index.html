@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanza Nasir - Professional Web Developer</title>
+    <title>Hunza Web Development | Professional Web Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
             --secondary: #3b82f6;
-            --accent: #f59e0b;
-            --accent-dark: #d97706;
+            --accent: #f97316;
+            --dark: #1e293b;
+            --darker: #0f172a;
             --light: #f8fafc;
-            --dark: #1f2937;
-            --text: #334155;
-            --text-light: #64748b;
+            --lighter: #ffffff;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
+            font-family: 'Poppins', sans-serif;
             background-color: var(--light);
-            color: var(--text);
+            color: var(--dark);
             line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         .container {
@@ -37,632 +44,837 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 18px 0;
+            background-color: var(--lighter);
+            box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            padding: 15px 0;
         }
         
-        nav {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
+            color: var(--primary);
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         
-        .logo i {
-            margin-right: 12px;
+        .logo-icon {
             color: var(--accent);
-            font-size: 28px;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 32px;
+            gap: 30px;
         }
         
         .nav-links a {
-            color: white;
             text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
-            transition: all 0.3s;
+            transition: var(--transition);
             position: relative;
             padding: 6px 0;
         }
         
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .nav-links a::after {
+        .nav-links a:after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
         }
         
-        .nav-links a:hover::after {
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover:after {
             width: 100%;
+        }
+        
+        .nav-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
         }
         
         /* Hero Section */
         .hero {
             padding: 160px 0 100px;
-            text-align: center;
-            background: linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.9)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-weight: 300;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 14px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
-            letter-spacing: 0.5px;
-        }
-        
-        .btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 90px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 18px;
-            font-weight: 700;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             position: relative;
-            display: inline-block;
+            overflow: hidden;
         }
         
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
-        .section-title p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 25px auto 0;
-            font-size: 1.1rem;
-        }
-        
-        /* About Section */
-        .about-content {
+        .hero-container {
             display: flex;
             align-items: center;
-            gap: 60px;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
         }
         
-        .about-text {
+        .hero-content {
             flex: 1;
         }
         
-        .about-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--dark);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-        
-        .about-image {
+        .hero-image {
             flex: 1;
+            text-align: center;
             position: relative;
         }
         
         .profile-img-container {
             position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s;
+            display: inline-block;
         }
         
-        .profile-img-container:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-        
-        .profile-img-container img {
+        .profile-img {
             width: 100%;
-            height: 100%;
-            display: block;
-            transition: transform 0.5s;
+            max-width: 380px;
+            height: auto;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow);
+            animation: morphing 10s ease-in-out infinite;
         }
         
-        .profile-img-container:hover img {
-            transform: scale(1.05);
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
         }
         
-        .profile-overlay {
+        .hero-badge {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            padding: 30px 20px 20px;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
             color: white;
-            opacity: 0;
-            transition: opacity 0.4s;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            animation: pulse 2s infinite;
         }
         
-        .profile-img-container:hover .profile-overlay {
-            opacity: 1;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--darker);
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
         }
         
         /* Services Section */
         .services {
-            background-color: var(--light);
+            padding: 100px 0;
+            background-color: var(--lighter);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--darker);
+            position: relative;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
         
         .service-card {
-            background: white;
-            padding: 35px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s;
+            background-color: var(--lighter);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
         }
         
         .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
-        .service-card i {
-            font-size: 46px;
-            color: var(--primary);
-            margin-bottom: 25px;
+        .service-icon {
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 25px;
         }
         
-        .service-card h3 {
-            margin-bottom: 18px;
-            color: var(--dark);
+        .service-title {
             font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--darker);
         }
         
-        .service-card p {
-            color: var(--text-light);
+        .service-desc {
+            color: var(--gray);
+        }
+        
+        /* My Work Section */
+        .my-work {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .work-card {
+            background-color: var(--lighter);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .work-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+        
+        .work-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .work-card:hover .work-img {
+            transform: scale(1.05);
+        }
+        
+        .work-content {
+            padding: 25px;
+        }
+        
+        .work-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--darker);
+        }
+        
+        .work-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .work-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .work-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .work-link:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: 100px 0;
+            background-color: var(--lighter);
+        }
+        
+        .exp-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .exp-text {
+            flex: 1;
+        }
+        
+        .exp-stats {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-box {
+            background-color: var(--lighter);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-text {
+            color: var(--gray);
+            font-weight: 500;
         }
         
         /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .pricing-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            background-color: var(--lighter);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
             text-align: center;
-            transition: all 0.4s;
+            transition: var(--transition);
             position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .pricing-card.popular {
+            transform: scale(1.03);
+            border: 2px solid var(--primary);
+            z-index: 2;
+        }
+        
+        .pricing-card.popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
-        .pricing-card.featured {
-            transform: scale(1.05);
-            z-index: 2;
-            border: 2px solid var(--accent);
-        }
-        
-        .pricing-card.featured:hover {
-            transform: scale(1.06) translateY(-5px);
-        }
-        
-        .pricing-header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 35px 30px;
-            position: relative;
-        }
-        
-        .pricing-header h3 {
-            font-size: 26px;
-            margin-bottom: 12px;
-            font-weight: 700;
+        .pricing-card.popular:hover {
+            transform: scale(1.03) translateY(-10px);
         }
         
         .price {
-            font-size: 46px;
-            font-weight: 800;
-            margin: 15px 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+            display: block;
         }
         
-        .price span {
-            font-size: 20px;
-            font-weight: 500;
-            margin-top: 8px;
-            margin-right: 4px;
-        }
-        
-        .pricing-features {
-            padding: 35px 30px;
-        }
-        
-        .pricing-features ul {
+        .price-features {
             list-style: none;
-            margin-bottom: 35px;
+            margin: 25px 0;
+            text-align: left;
         }
         
-        .pricing-features li {
-            padding: 14px 0;
-            border-bottom: 1px solid #eee;
-            color: var(--text-light);
+        .price-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .pricing-features li:last-child {
-            border-bottom: none;
+        .price-features li i {
+            color: var(--primary);
         }
         
         /* Contact Section */
         .contact {
-            background-color: var(--light);
+            padding: 100px 0;
+            background-color: var(--lighter);
         }
         
-        .contact-wrapper {
-            display: flex;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 50px;
         }
         
         .contact-info {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
         
-        .contact-info h3 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: var(--dark);
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .contact-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--darker);
+        }
+        
+        .contact-details p {
+            color: var(--gray);
         }
         
         .contact-form {
-            flex: 1;
-        }
-        
-        .contact-form h3 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: var(--dark);
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 28px;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .info-item:hover {
-            transform: translateX(8px);
-        }
-        
-        .info-item i {
-            font-size: 26px;
-            color: var(--primary);
-            margin-right: 20px;
-            min-width: 30px;
-            text-align: center;
+            background-color: var(--lighter);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
         
         .form-group {
-            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
         }
         
         .form-group label {
-            display: block;
-            margin-bottom: 8px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--darker);
         }
         
-        .form-control {
-            width: 100%;
-            padding: 16px 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s;
+        .form-group input,
+        .form-group textarea {
+            padding: 15px 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
         }
         
-        .form-control:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
         }
         
-        textarea.form-control {
-            min-height: 160px;
+        .form-group textarea {
+            height: 150px;
             resize: vertical;
         }
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--dark), #111827);
+            background-color: var(--darker);
             color: white;
-            padding: 50px 0 30px;
-            text-align: center;
+            padding: 70px 0 30px;
         }
         
-        .footer-content {
-            display: flex;
-            flex-direction: column;
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .footer-col p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
             align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            gap: 12px;
         }
         
         .social-links {
-            margin-bottom: 30px;
             display: flex;
-            gap: 18px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 22px;
-            border-radius: 50%;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-5px);
+            background-color: var(--primary);
+            transform: translateY(-3px);
         }
         
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            padding: 18px 28px;
-            background: #4ade80;
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            transform: translateX(150%);
-            transition: transform 0.4s ease-out;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-        }
-        
-        .notification i {
-            margin-right: 12px;
-            font-size: 24px;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.2rem;
+            h1 {
+                font-size: 2.8rem;
             }
             
-            .about-content {
-                gap: 40px;
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
             }
             
-            .contact-wrapper {
-                gap: 40px;
+            .hero-badge {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .exp-content {
+                flex-direction: column;
+            }
+            
+            .exp-stats {
+                width: 100%;
             }
         }
         
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--lighter);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 15px;
             }
             
-            .hero {
-                padding: 140px 0 80px;
+            .nav-links.active {
+                display: flex;
             }
             
-            .hero h1 {
-                font-size: 2.6rem;
+            .nav-btn {
+                display: block;
             }
             
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
+            h1 {
                 font-size: 2.3rem;
             }
             
-            .about-content, .contact-wrapper {
-                flex-direction: column;
+            .tagline {
+                font-size: 1.2rem;
             }
             
-            .about-image {
-                order: -1;
-                margin-bottom: 40px;
-            }
-            
-            .pricing-card.featured {
-                transform: scale(1);
-                margin: 20px 0;
-            }
-            
-            .pricing-card.featured:hover {
-                transform: translateY(-5px);
-            }
-            
-            .notification {
-                top: 80px;
-                right: 15px;
-                left: 15px;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .btn {
-                padding: 12px 28px;
-            }
-            
-            .section-title h2 {
+            .section-title {
                 font-size: 2rem;
             }
             
-            .service-card, .pricing-card {
-                padding: 25px 20px;
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .exp-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 130px 0 80px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <i class="fas fa-code"></i>
-                    <span>Hanza Nasir</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-code logo-icon"> </i>
+                <!--<img src="file:///C:/Users/MNA/Desktop/bprofileFacebook.jpg" alt="Hunza  Developer"  style="width: 10%; height: 10%;border-radius: 80px; border-color: #1d4ed8;" >-->
+                
+                Hunza Developer
+            </div>
+            <button class="nav-btn" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#work">My Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <h1>Professional Web Design & Development</h1>
-            <p>I create stunning, responsive websites that help your business grow and stand out from the competition.</p>
-            <a href="#contact" class="btn">Get Started Today</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-                <p>I'm a passionate web developer dedicated to creating exceptional digital experiences.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Hanza Nasir - Web Developer</h3>
-                    <p>With experience in web design and development, I have helped numerous businesses establish their online presence. I specialize in creating custom websites that are not only visually appealing but also highly functional and user-friendly.</p>
-                    <p>I stay up-to-date with the latest web technologies and trends to ensure that your website is modern, fast, and secure. My goal is to deliver a website that exceeds your expectations and helps you achieve your business objectives.</p>
-                    <a href="#services" class="btn">My Services</a>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Unlock Your Online Potential</h1>
+                <p class="tagline">Professional Web Developer</p>
+                <p class="description">I'm a professional web developer offering expert website design and development services. With 4 years of experience creating stunning, functional websites, I can help bring your vision to life. Let's build your online presence together!</p>
+                <div>
+                    <a href="#contact" class="btn">Get Started</a>
+                    <a href="#work" class="btn btn-secondary">View My Work</a>
                 </div>
-                <div class="about-image">
-                    <div class="profile-img-container">
-                        <img src="hanza.png" alt="Hanza Nasir - Web Developer">
-                        <div class="profile-overlay">
-                            <h4>Hanza Nasir</h4>
-                            <p>Web Developer & Designer</p>
-                        </div>
-                    </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-img-container">
+                    <img src="profile.jpeg" alt="Hunza Web Developer" class="profile-img">
+                    <div class="hero-badge">4+ Years Experience</div>
                 </div>
             </div>
         </div>
@@ -671,40 +883,126 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-title">
-                <h2>My Services</h2>
-                <p>I offer a wide range of web design and development services to meet your business needs.</p>
-            </div>
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">I offer a wide range of web development services to help your business grow online</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Website Design</h3>
-                    <p>Custom website designs that are visually appealing, user-friendly, and optimized for conversions.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="service-title">Custom Website Design</h3>
+                    <p class="service-desc">Tailored designs that reflect your brand identity and engage your audience effectively.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Responsive Development</h3>
-                    <p>Websites that look great and function perfectly on all devices, from desktops to smartphones.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Responsive Web Development</h3>
+                    <p class="service-desc">Websites that look great and function perfectly on all devices, from desktops to smartphones.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>E-Commerce Solutions</h3>
-                    <p>Complete online store setup with secure payment processing and inventory management.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="service-title">E-commerce Solutions</h3>
+                    <p class="service-desc">Complete online store development with secure payment processing and inventory management.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-search"></i>
-                    <h3>SEO Optimization</h3>
-                    <p>Search engine optimization to help your website rank higher and attract more visitors.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Website Maintenance</h3>
+                    <p class="service-desc">Ongoing support to keep your website secure, up-to-date, and running smoothly.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Website Maintenance</h3>
-                    <p>Ongoing support and maintenance to keep your website secure and up-to-date.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Work Section -->
+    <section class="my-work" id="work">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <p class="section-subtitle">Here are some of the projects I've designed and developed. Each website is crafted with attention to detail and a focus on user experience.</p>
+            
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="ecomonwebsitedesign.jpg" alt="E-commerce Website" class="work-img">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">Modern E-commerce Store</h3>
+                        <p class="work-desc">A fully responsive online store with product filtering, cart functionality, and secure checkout.</p>
+                        <div class="work-tags">
+                            <span class="work-tag">HTML/CSS</span>
+                            <span class="work-tag">JavaScript</span>
+                            <span class="work-tag">React</span>
+                        </div>
+                        <a href="#" class="work-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Web Hosting</h3>
-                    <p>Reliable and secure web hosting services with 99.9% uptime guarantee.</p>
+                
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="bussnessdesihnnn.jpg" alt="Corporate Website" class="work-img">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">Corporate Business Website</h3>
+                        <p class="work-desc">A professional website for a consulting firm with service pages, team profiles, and contact forms.</p>
+                        <div class="work-tags">
+                            <span class="work-tag">WordPress</span>
+                            <span class="work-tag">PHP</span>
+                            <span class="work-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="work-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="poticaldesignwebsite.jpg" alt="Portfolio Website" class="work-img">
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">Creative Political Website</h3>
+                        <p class="work-desc">A dynamic platform for politicians and activists, featuring news, events, and donation systems.</p>
+                        <div class="work-tags">
+                            <span class="work-tag">HTML/CSS</span>
+                            <span class="work-tag">JavaScript</span>
+                            <span class="work-tag">GSAP</span>
+                        </div>
+                        <a href="https://hunzanasir1818-star.github.io/Gul-Asghar-Khan-Baghoor/" class="work-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">My Experience</h2>
+            <p class="section-subtitle">With 4 years of professional experience in web development, I've had the privilege of working with various clients across different industries.</p>
+            <div class="exp-content">
+                <div class="exp-text">
+                    <p class="description">I specialize in creating responsive, user-friendly websites that drive results. My expertise includes HTML5, CSS3, JavaScript, PHP, React Native, Node.js, and various CMS platforms like WordPress. I'm committed to delivering high-quality solutions that exceed client expectations.</p>
+                    <a href="#contact" class="btn">Hire Me</a>
+                </div>
+                <div class="exp-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-text">Years Experience</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-text">Projects Completed</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">35+</span>
+                        <span class="stat-text">Happy Clients</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-text">Technologies Mastered</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -713,61 +1011,41 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-title">
-                <h2>Pricing Plans</h2>
-                <p>Choose the plan that works best for your business needs and budget.</p>
-            </div>
+            <h2 class="section-title">Pricing Packages</h2>
+            <p class="section-subtitle">Flexible pricing options to suit different needs and budgets</p>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Basic Website</h3>
-                        <div class="price"><span>PKR</span>20,000 - 50,000</div>
-                        <p>Perfect for small businesses</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Up to 5 Pages</li>
-                            <li>Responsive Design</li>
-                            <li>Basic SEO</li>
-                            <li>Contact Form</li>
-                            <li>1 Month Support</li>
-                        </ul>
-                        <a href="#contact" class="btn">Get Started</a>
-                    </div>
+                    <h3>Basic Website</h3>
+                    <span class="price">$499</span>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> Up to 5 Pages</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Basic SEO</li>
+                        <li><i class="fas fa-check"></i> 1 Month Support</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <h3>Business Website</h3>
-                        <div class="price"><span>PKR</span>50,000 - 80,000</div>
-                        <p>Ideal for growing businesses</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Up to 10 Pages</li>
-                            <li>Custom Design</li>
-                            <li>Advanced SEO</li>
-                            <li>Social Media Integration</li>
-                            <li>3 Months Support</li>
-                        </ul>
-                        <a href="#contact" class="btn">Get Started</a>
-                    </div>
+                <div class="pricing-card popular">
+                    <h3>Business Website</h3>
+                    <span class="price">$999</span>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> Up to 15 Pages</li>
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> CMS Integration</li>
+                        <li><i class="fas fa-check"></i> 3 Months Support</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Quote</a>
                 </div>
                 <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>E-Commerce Website</h3>
-                        <div class="price"><span>PKR</span>45,000 - 125,000</div>
-                        <p>Complete online store solution</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Unlimited Products</li>
-                            <li>Payment Gateway Integration</li>
-                            <li>Inventory Management</li>
-                            <li>Order Tracking System</li>
-                            <li>6 Months Support</li>
-                        </ul>
-                        <a href="#contact" class="btn">Get Started</a>
-                    </div>
+                    <h3>E-commerce Store</h3>
+                    <span class="price">$1,999</span>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> Product Catalog</li>
+                        <li><i class="fas fa-check"></i> Payment Gateway</li>
+                        <li><i class="fas fa-check"></i> Inventory Management</li>
+                        <li><i class="fas fa-check"></i> 6 Months Support</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Quote</a>
                 </div>
             </div>
         </div>
@@ -776,51 +1054,49 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Me</h2>
-                <p>Get in touch with me to discuss your project and get a free quote.</p>
-            </div>
-            <div class="contact-wrapper">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">Have a project in mind? Let's discuss how we can work together to bring your ideas to life</p>
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="info-item">
-                        <i class="fas fa-user"></i>
-                        <div>
-                            <h4>Name</h4>
-                            <p>Hanza Nasir</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
+                        <div class="contact-details">
+                            <h3>Location</h3>
                             <p>Khushab, Pakistan</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>Available upon request</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
+                        <div class="contact-details">
+                            <h3>Email</h3>
                             <p>hunzanasir1818@gmail.com</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Monday - Friday: 9AM - 5PM</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+92 302 6660065</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Working Hours</h3>
+                            <p>Mon-Fri: 9AM - 6PM</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Send Message</h3>
+                 <div class="contact-form">
+                    
                     <form action="https://formsubmit.co/hunzanasir1818@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="New message from your website!">
                         <input type="hidden" name="_template" value="table">
@@ -852,29 +1128,47 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="logo">
-                    <i class="fas fa-code"></i>
-                    <span>Hanza Nasir</span>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Hunza Web Development</h3>
+                    <p>Professional website design and development services to help your business grow online.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16HVCkYjC6/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/hunza_digital_creator/?utm_source=qr&r=nametag"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/hunza-nasir-b204a8335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/hunza-nasir-b204a8335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Custom Website Design</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Responsive Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> E-commerce Solutions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Website Maintenance</a></li>
+                    </ul>
                 </div>
-                <p>&copy; 2025 Hanza Nasir. All Rights Reserved.</p>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#work"><i class="fas fa-chevron-right"></i> My Work</a></li>
+                        <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Hunza Web Development. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        Thank you for your message! I will get back to you soon.
-    </div>
-
     <script>
-        // Simple form submission feedback
+         // submit to email
+           // Simple form submission feedback
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('form');
             const notification = document.getElementById('notification');
@@ -898,7 +1192,27 @@
                 }, 5000);
             }
         });
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                navToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
     </script>
 </body>
-
 </html>
